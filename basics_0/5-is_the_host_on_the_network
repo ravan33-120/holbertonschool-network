@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-#ping
-ping -c 5 "$1" | grep "ttl" >/dev/null 2>&1
-if [ $? -eq 0 ]
-then
+#ping 
+if ping -c 1 "$1" | grep -q "ttl"; then
     echo "Host is up"
 else
     echo "Host is down"
