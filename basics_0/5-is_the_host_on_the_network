@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-# pingleme
-ping 8.8.8.8 -n 5
+ping -c 5 "$1" | grep "ttl" >/dev/null 2>&1
+if [ $? -eq 0 ]
+then
+    echo "Host is up"
+else
+    echo "Host is down"
+fi
